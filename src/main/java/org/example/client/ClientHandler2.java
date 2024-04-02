@@ -1,28 +1,26 @@
-package org.example.server;
+package org.example.client;
 
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOutboundHandler;
+import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.Delimiters;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
-import org.example.client.ClientChatHandler;
 
-public class ServerChatHanlder extends ChannelInitializer<SocketChannel> {
+public class ClientHandler2 extends ChannelInitializer<SocketChannel> {
+
+
     @Override
-    protected void initChannel(SocketChannel socketChannel) throws Exception {
+    protected void initChannel(SocketChannel ch) throws Exception {
 
-            socketChannel.pipeline()
-                    //设置分隔符
+                ch.pipeline()
                     .addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()))
-                    //解码和编码
                     .addLast("decoder", new StringDecoder())
                     .addLast("encoder", new StringEncoder())
-                    //自己的拦截器
-                    .addLast("handler", new ServerHandler())
-                    .addLast(new ServerChatHandler2());
+                    .addLast("handler", new ClientChatHandler2());
+        }
 
-
-
-    }
 }

@@ -1,22 +1,11 @@
-package org.example.client;
+package org.example.nettychart;
 
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.Delimiters;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
-import org.example.server.NettyServer;
-import org.example.server.ServerHandler;
-
-import java.util.UUID;
 
 @Slf4j
-public class ClientChatHandler extends SimpleChannelInboundHandler<String> {
+public class SpringClientChatHandler extends SimpleChannelInboundHandler<String> {
 
 
     @Override

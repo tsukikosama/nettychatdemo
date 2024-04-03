@@ -65,6 +65,8 @@ public class MyHttpServerHandler extends SimpleChannelInboundHandler {
             defaultFullHttpResponse.content().writeBytes(files,0,len);
             //设置请求长度
             defaultFullHttpResponse.headers().setInt(HttpHeaderNames.CONTENT_LENGTH,len);
+
+
 //        System.out.println(((HttpRequest) msg).uri());
 //        System.out.println(response);
 //           //写入给浏览器

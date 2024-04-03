@@ -1,8 +1,6 @@
 package org.tcp.http;
  
- 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
+
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
@@ -10,14 +8,9 @@ import io.netty.handler.codec.http.multipart.Attribute;
 import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
 import io.netty.handler.codec.http.multipart.InterfaceHttpData;
 
-import io.netty.util.CharsetUtil;
-import org.springframework.util.FileCopyUtils;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.nio.channels.FileChannel;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +18,7 @@ import java.util.Map;
 /**
  * 实现一个简单的http 请求 get
  *  每个资源都会进行一次请求
- *  #
+ * @author 未来
  */
 public class MyHttpServerHandler extends SimpleChannelInboundHandler {
 

@@ -2,7 +2,10 @@ package org.websocket;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
@@ -17,7 +20,10 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<WebSocketFra
             String content = ((TextWebSocketFrame) msg).text();
             System.out.println("收到来自客户端的消息：" + content);
             ctx.writeAndFlush(content + "给你");
-            FullHttpResponse response = (FullHttpResponse) msg;
+           //返回内容给用户
+            DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
+
+
 
         }
 
